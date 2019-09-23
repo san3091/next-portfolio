@@ -21,17 +21,22 @@ const Home = () => (
       <P5Wrapper sketch={sketch}/>
     </div>
     <div className="content">
-      <h3 className="header">performance &amp; web development</h3>
+      <h3 className="header">performance &amp;</h3>
+      <h3 className="header">web development</h3>
       <p>
         I make dance and music and the internet
       </p>
     </div>
-    <div className="link link--left"><a href="">past performances</a></div>
-    <div className="link link--right"><a href="">future performances</a></div>
+    <div className="link link--left"><Link href="/past">past performances</Link></div>
+    <div className="link link--right"><Link href="/future">future performances</Link></div>
     <div className="link--container link--bottom">
-      <div className="link link--social"><a href="">instagram</a></div>
-      <div className="link link--social"><a href="">soundcloud</a></div>
-      <div className="link link--social"><a href="">vimeo</a></div>
+      <div className="link link--horizontal"><a href="https://www.instagram.com/santiago_mvmt/">instagram</a></div>
+      <div className="link link--horizontal"><a href="">soundcloud</a></div>
+      <div className="link link--horizontal"><a href="">vimeo</a></div>
+    </div>
+    <div className="link--container link--top">
+      <div className="link link--horizontal"><Link href="">tech portfolio</Link></div>
+      <div className="link link--horizontal"><Link href="">hire me</Link></div>
     </div>
 
     <style jsx>{`
@@ -41,9 +46,9 @@ const Home = () => (
          line-height: 1.8em;
          box-sizing: border-box;
        }
-       a {
+       :global(a) {
          text-decoration: none;
-         color: black;
+         color: #696969;
        }
       .header {
         font-size: 30px;
@@ -62,17 +67,22 @@ const Home = () => (
         border: 1px solid transparent;
       }
       .link:hover {
-        border: 1px solid black;
+        border: 1px solid #696969;
+      }
+      .link--bottom {
+        bottom: 110px;
+      }
+      .link--top {
+        top: 110px;
       }
       .link--container {
         position: fixed;
         display: flex;
         justify-content: center;
-        bottom: 110px;
         left: 0;
         right: 0;
       }
-      .link--social {
+      .link--horizontal {
         margin: 0 50px;
       }
       .link--left {
@@ -114,8 +124,8 @@ const sketch = p => {
     p.clear()
     p.textSize(40)
     p.fill(80)
-    p.text("s a n t i a g o".toUpperCase(), xPosition + 200, 120)
-    p.text("q u i n t a n a".toUpperCase(), p.windowWidth - xPosition, 190)
+    p.text("s a n t i a g o".toUpperCase(), xPosition + 100, 120)
+    p.text("q u i n t a n a".toUpperCase(), p.windowWidth - xPosition - 100, 190)
   }
 }
 
