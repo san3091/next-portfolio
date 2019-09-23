@@ -5,21 +5,21 @@ const P5Wrapper = dynamic(() => import('react-p5-wrapper'), {ssr: false})
 
 const NameBanner = () => (
   <>
-    <div className="name-banner--container">
+    <div className="container">
       <P5Wrapper sketch={santiagoSketch} />
     </div>
 
     <style jsx>{`
-      .name-banner--container {
+      .container {
         margin-top: 10px;
-        margin-left: -60px;
+        margin-left: -150px;
       }
     `}</style>
   </>
 )
 
 const santiagoSketch = p => {
-  const width = p.windowWidth + 100
+  const width = p.windowWidth + 300
 
   p.setup = () => {
     p.createCanvas(width, 250)
@@ -31,23 +31,23 @@ const santiagoSketch = p => {
     p.clear()
     p.textSize(55)
     // SANTIAGO
-    p.text("S", x * 2, 120)
-    p.text("A", x * 4, 120)
-    p.text("N", x * 6, 120)
-    p.text("T", x * 8, 120)
-    p.text("I", x * 10, 120)
-    p.text("A", x * 12, 120)
-    p.text("G", x * 14, 120)
-    p.text("O", x * 16, 120)
+    p.text("S", (x * 3) - 100, 120)
+    p.text("A", (x * 5) - 100, 120)
+    p.text("N", (x * 7) - 100, 120)
+    p.text("T", (x * 9) - 100, 120)
+    p.text("I", (x * 11) - 100, 120)
+    p.text("A", (x * 13) - 100, 120)
+    p.text("G", (x * 15) - 100, 120)
+    p.text("O", (x * 17) - 100, 120)
     // QUINTANA
-    p.text("Q", width - (x * 16), 190)
-    p.text("U", width - (x * 14), 190)
-    p.text("I", width - (x * 12), 190)
-    p.text("N", width - (x * 10), 190)
-    p.text("T", width - (x * 8), 190)
-    p.text("A", width - (x * 6), 190)
-    p.text("N", width - (x * 4), 190)
-    p.text("A", width - (x * 2), 190)   
+    p.text("Q", width - (x * 17), 190)
+    p.text("U", width - (x * 15), 190)
+    p.text("I", width - (x * 13), 190)
+    p.text("N", width - (x * 11), 190)
+    p.text("T", width - (x * 9), 190)
+    p.text("A", width - (x * 7), 190)
+    p.text("N", width - (x * 5), 190)
+    p.text("A", width - (x * 3), 190)   
   }
 }
 

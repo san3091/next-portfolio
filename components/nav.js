@@ -67,7 +67,7 @@ const Nav = () => (
      <style jsx>{`
        :global(body) {
          margin: 0;
-         font-family: Montserrat, sans-serif;
+         font-family: 'Fira Mono', sans-serif;
          color: #32292F;
        }
        nav {
@@ -101,13 +101,14 @@ const Nav = () => (
 const navSketch = p => {
   let navPosition, montserrat
 
-  // p.preload = () => {
-  //   montserrat = p.loadFont("static/Montserrat-Regular.otf")
-  // }
+  p.preload = () => {
+    montserrat = p.loadFont("static/Montserrat-Regular.otf")
+  }
 
   p.setup = () => {
     p.createCanvas(400, 500)
-    p.textSize(28)
+    p.textSize(22)
+    p.textFont(montserrat)
   }
 
   p.draw = () => {
@@ -126,7 +127,7 @@ const navSketch = p => {
     
     // Nav Items
     p.push()
-    p.fill(0)
+    p.fill(255)
     p.text("about", navPosition, 45)
     p.text("dance", navPosition * 0.8, 110)
     p.text("tech", navPosition * 0.6, 175)
