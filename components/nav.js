@@ -1,139 +1,92 @@
 import React from 'react'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
-
-const P5Wrapper = dynamic(() => import('react-p5-wrapper'), {ssr: false})
-
-const links = [
-  { href: '/about', label: 'about' },
-  { href: '/dance', label: 'dance' },
-  { href: '/tech', label: 'tech' },
-  { href: '/calendar', label: 'calendar' }
-].map(link => {
-  link.key = `nav-link-${link.href}-${link.label}`
-  return link
-})
-
-// const Nav = () => (
-//   <nav>
-//     <ul>
-//       <li>
-//         <Link href='/'>
-//           <a>home</a>
-//         </Link>
-//       </li>
-//       {links.map(({ key, href, label }) => (
-//         <li key={key}>
-//           <a href={href}>{label}</a>
-//         </li>
-//       ))}
-//     </ul>
-// 
-//     <style jsx>{`
-//       :global(body) {
-//         margin: 0;
-//         font-family: Montserrat, sans-serif;
-//         color: #32292F;
-//       }
-//       nav {
-//         height: 500px;
-//       }
-//       ul {
-//         display: flex;
-//         flex-direction: column;
-//       }
-//       nav > ul {
-//         padding: 4px 30px;
-//       }
-//       li {
-//         display: flex;
-//         padding: 6px 8px;
-//       }
-//       a {
-//         color: #575366;
-//         text-decoration: none;
-//         font-size: 30px;
-//       }
-//       a:hover {
-//         color: #ff00bf;
-//       }
-//     `}</style>
-//   </nav>
-// )
+import Head from 'next/head'
+import MainBackground from './mainBackground'
 
 const Nav = () => (
-  <nav>
-    <P5Wrapper sketch={navSketch}/>
-     <style jsx>{`
-       :global(body) {
+  <>
+    <Head>
+      <title>Santiago Quintana</title>
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Fira+Mono&display=swap" rel="stylesheet" />
+      <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
+    </Head>
+
+
+    <MainBackground />
+    <div className="link link--left"><Link href="/past">past performances</Link></div>
+    <div className="link link--right"><Link href="/calendar">future performances</Link></div>
+    <div className="link--container link--bottom">
+      <div className="link link--horizontal"><a href="https://www.instagram.com/santiago_mvmt/">instagram</a></div>
+      <div className="link link--horizontal"><a href="https://soundcloud.com/user-255736465">soundcloud</a></div>
+      <div className="link link--horizontal"><a href="https://vimeo.com/santiagoqg">vimeo</a></div>
+    </div>
+    <div className="link--container link--top">
+      <div className="link link--horizontal"><Link href="/">home</Link></div>
+      <div className="link link--horizontal"><Link href="">tech portfolio</Link></div>
+      <div className="link link--horizontal"><Link href="">hire me</Link></div>
+    </div>
+
+    <style global jsx>{`
+      body {
          margin: 0;
-         font-family: 'Fira Mono', sans-serif;
-         color: #32292F;
-       }
-       nav {
-         height: 500px;
-       }
-       ul {
-         display: flex;
-         flex-direction: column;
-       }
-       nav > ul {
-         padding: 4px 30px;
-       }
-       li {
-         display: flex;
-         padding: 6px 8px;
-       }
-       a {
-         color: #575366;
+         font-family: Montserrat, sans-serif;
+         line-height: 1.8em;
+         box-sizing: border-box;
+      }
+      a {
          text-decoration: none;
-         font-size: 30px;
-       }
-       a:hover {
-         color: #ff00bf;
-       }
-     `}</style>
+         color: #696969;
+      }
+      h1 {
+        font-family: 'Fira Mono', sans-serif;
+      }
+    `}</style>
 
-  </nav>
-   
+    <style jsx>{`
+       .link {
+          padding: 7px 17px;
+          font-size: 20px;
+          border: 1px solid transparent;
+          background-color: white;
+        }
+        .link:hover {
+          border: 1px solid #696969;
+        }
+        .link--bottom {
+          bottom: 110px;
+        }
+        .link--top {
+          top: 110px;
+        }
+        .link--container {
+          position: fixed;
+          display: flex;
+          justify-content: center;
+          left: 0;
+          right: 0;
+        }
+        .link--horizontal {
+          margin: 0 50px;
+        }
+        .link--left {
+          transform: rotate(270deg);
+          position: fixed;
+          left: 15px;
+          top: 50%;
+          margin-top: -30px;
+        }
+        .link--right {
+          transform: rotate(90deg);
+          position: fixed;
+          right: 15px;
+          top: 50%;
+          margin-top: -30px;
+        }
+      `}</style>
+
+
+  </>
 )
-
-const navSketch = p => {
-  let navPosition, montserrat
-
-  p.preload = () => {
-    montserrat = p.loadFont("static/Montserrat-Regular.otf")
-  }
-
-  p.setup = () => {
-    p.createCanvas(400, 500)
-    p.textSize(22)
-    p.textFont(montserrat)
-  }
-
-  p.draw = () => {
-    p.clear()
-    navPosition = p.map(p.mouseX, 0, p.windowWidth, 300, -100, true)
-
-    // Circles
-    // p.push()
-    // p.noFill()
-    // p.strokeWeight(2)
-    // p.stroke(90)
-
-    // p.circle(navPosition * 1.2, 35, 58)
-    // p.circle(navPosition, 105, 58)
-    // p.pop()
-    
-    // Nav Items
-    p.push()
-    p.fill(255)
-    p.text("about", navPosition, 45)
-    p.text("dance", navPosition * 0.8, 110)
-    p.text("tech", navPosition * 0.6, 175)
-    p.text("calendar", navPosition * 0.4, 240)
-    p.pop()
-  }
-}
 
 export default Nav
