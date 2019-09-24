@@ -14,6 +14,8 @@ const Nav = () => (
 
 
     <MainBackground />
+
+    {/* TODO turn these into <button>s */}
     <div className="link link--left"><Link href="/past">past performances</Link></div>
     <div className="link link--right"><Link href="/calendar">future performances</Link></div>
     <div className="link--container link--bottom">
@@ -60,6 +62,7 @@ const Nav = () => (
           top: 110px;
         }
         .link--container {
+          z-index: 3;
           position: fixed;
           display: flex;
           justify-content: center;
