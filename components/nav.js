@@ -16,8 +16,8 @@ const Nav = () => (
     <MainBackground />
 
     {/* TODO turn these into <button>s */}
-    <div className="link link--left"><Link href="/past">past projects</Link></div>
-    <div className="link link--right"><Link href="/calendar">future projects</Link></div>
+    <div className="link link--left"><Link href="/projects">projects</Link></div>
+    <div className="link link--right"><Link href="/calendar">calendar</Link></div>
     <div className="link--container link--bottom">
       <div className="link link--horizontal"><a href="https://www.instagram.com/santiago_mvmt/">instagram</a></div>
       <div className="link link--horizontal"><a href="https://soundcloud.com/user-255736465">soundcloud</a></div>
@@ -75,14 +75,14 @@ const Nav = () => (
         .link--left {
           transform: rotate(270deg);
           position: fixed;
-          left: 15px;
+          left: 60px;
           top: 50%;
           margin-top: -30px;
         }
         .link--right {
           transform: rotate(90deg);
           position: fixed;
-          right: 15px;
+          right: 60px;
           top: 50%;
           margin-top: -30px;
         }
