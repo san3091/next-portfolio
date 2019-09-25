@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Link from "next/link"
 
 const List = ({ items }) => (
   <>
@@ -18,14 +19,17 @@ const List = ({ items }) => (
   </>
 )
 
-const ListItem = ({ title, description, imageSrc }) => (
+const ListItem = ({ title, description, imageSrc, link }) => (
   <>
-    <div className="list--item">
-      <img src="static/kick.jpg" />
-      <div className="list--info">
-        <h3 className="list--title">{title}</h3>
+    <Link href={link}>
+      <div className="list--item">
+        <img src={imageSrc} />
+        <div className="list--info">
+          <h3 className="list--title">{title}</h3>
+          <p className="list--description">{description}</p>
+        </div>
       </div>
-    </div>
+    </Link>
     
     <style jsx>{`
       .list--item {
@@ -35,6 +39,7 @@ const ListItem = ({ title, description, imageSrc }) => (
         height: 400px;
         margin: 10px;
         flex: 1;
+        cursor: pointer;
       }
       .list--item img {
         height: 100%;
@@ -42,7 +47,7 @@ const ListItem = ({ title, description, imageSrc }) => (
       .list--item:hover img {
         visibility: hidden;
       }
-      .list--item:hover .list--title {
+      .list--item:hover .list--title, .list--item:hover .list--description {
         visibility: visible;
       }
       .list--info {
@@ -54,6 +59,8 @@ const ListItem = ({ title, description, imageSrc }) => (
         position: absolute;
         top: 0;
         left: 0;
+        bottom: 0;
+        right: 0;
         width: 100%;
         height: 100%;
         visibility: hidden;

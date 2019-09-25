@@ -16,17 +16,17 @@ const Nav = () => (
     <MainBackground />
 
     {/* TODO turn these into <button>s */}
-    <div className="link link--left"><Link href="/past">past performances</Link></div>
-    <div className="link link--right"><Link href="/calendar">future performances</Link></div>
+    <div className="link link--left"><Link href="/past">past projects</Link></div>
+    <div className="link link--right"><Link href="/calendar">future projects</Link></div>
     <div className="link--container link--bottom">
       <div className="link link--horizontal"><a href="https://www.instagram.com/santiago_mvmt/">instagram</a></div>
       <div className="link link--horizontal"><a href="https://soundcloud.com/user-255736465">soundcloud</a></div>
       <div className="link link--horizontal"><a href="https://vimeo.com/santiagoqg">vimeo</a></div>
     </div>
     <div className="link--container link--top">
-      <div className="link link--horizontal"><Link href="/">home</Link></div>
-      <div className="link link--horizontal"><Link href="">tech portfolio</Link></div>
-      <div className="link link--horizontal"><Link href="">hire me</Link></div>
+      <div className="link link--horizontal"><Link href="/"><a>home</a></Link></div>
+      <div className="link link--horizontal"><Link href=""><a>tech portfolio</a></Link></div>
+      <div className="link link--horizontal"><Link href=""><a>hire me</a></Link></div>
     </div>
 
     <style global jsx>{`
