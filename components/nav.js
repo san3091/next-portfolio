@@ -19,9 +19,9 @@ const Nav = () => (
     <div className="link link--left"><Link href="/projects">projects</Link></div>
     <div className="link link--right"><Link href="/calendar">calendar</Link></div>
     <div className="link--container link--bottom">
-      <div className="link link--horizontal"><a href="https://www.instagram.com/santiago_mvmt/">instagram</a></div>
-      <div className="link link--horizontal"><a href="https://soundcloud.com/user-255736465">soundcloud</a></div>
-      <div className="link link--horizontal"><a href="https://vimeo.com/santiagoqg">vimeo</a></div>
+      <div className="link link--horizontal"><a href="https://www.instagram.com/santiago_mvmt/" target="_blank">instagram</a></div>
+      <div className="link link--horizontal"><a href="https://soundcloud.com/user-255736465" target="_blank">soundcloud</a></div>
+      <div className="link link--horizontal"><a href="https://vimeo.com/santiagoqg" target="_blank">vimeo</a></div>
     </div>
     <div className="link--container link--top">
       <div className="link link--horizontal"><Link href="/"><a>home</a></Link></div>
