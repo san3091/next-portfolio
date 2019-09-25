@@ -11,6 +11,10 @@ const Content = () => (
     <div className="name-container">
       <P5Wrapper sketch={sketch}/>
     </div>
+    <div className="mobile-name">
+      <h1>Santiago</h1>
+      <h1>Quintana</h1>
+    </div>
     <div className="content">
       <h3 className="header">performance &amp; web development</h3>
       <p>
@@ -22,13 +26,36 @@ const Content = () => (
         font-size: 28px;
         font-weight: 400;
       }
+      .mobile-name {
+        position: fixed;
+        bottom: 0;
+        right: 50px;
+      }
       .name-container {
+        display: none;
         margin-top: 200px;
       }
       .content {
-        margin-left: 400px;
-        max-width: 600px;
-      }`}</style>
+        width: 100px;
+        position: absolute;
+        top: 200px;
+        right: 0;
+      }
+      @media (min-width: 1100px) {
+        .mobile-name {
+          visibility: hidden;
+        }
+        .name-container {
+          display: block;
+        }
+        .content {
+          position: static;
+          margin-left: 20%;
+          max-width: 600px;
+          transform: none;
+        }
+      }
+    `}</style>
    </div>
 )
 
@@ -68,7 +95,6 @@ class Home extends React.Component {
 
         <style jsx>{`
           .animation {
-            height: 400px;
             ${this.state.animating ? "display: flex;" : "display: none;"}
             justify-content: center;
             align-items: center;
@@ -79,6 +105,12 @@ class Home extends React.Component {
             ${this.state.animating ? "visibility: hidden;" : null}
             ${this.state.animating ? "opacity: 0;" : "opacity: 1;"}
             transition: visibility 0.8s linear, opacity 0.8s linear;
+          }
+
+          @media (min-width: 1100px) {
+            .animation {
+              height: 400px;
+            }
           }
         `}</style>
       </>

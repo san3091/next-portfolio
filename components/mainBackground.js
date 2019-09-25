@@ -22,22 +22,28 @@ const MainBackground = () => (
     <style jsx>{`
       .torus {
         position: fixed;
+        display: none;
       }
-      .torus-top-right {
-        top: 0;
-        right: 0;
-      }
-      .torus-top-left {
-        top: 0;
-        left: 0;
-      }
-      .torus-bottom-left {
-        bottom: 0;
-        left: 0;
-      }
-      .torus-bottom-right {
-        bottom: 0;
-        right: 0;
+      @media (min-width: 1100px) {
+        .torus {
+          display: block;
+        }
+        .torus-top-right {
+          top: 0;
+          right: 0;
+        }
+        .torus-top-left {
+          top: 0;
+          left: 0;
+        }
+        .torus-bottom-left {
+          bottom: 0;
+          left: 0;
+        }
+        .torus-bottom-right {
+          bottom: 0;
+          right: 0;
+        }
       }
     `}</style>
   </div>
