@@ -17,7 +17,6 @@ const Content = () => (
         I make dance and music and the internet
       </p>
     </div>
-
     <style jsx>{`
       .header {
         font-size: 28px;
