@@ -6,7 +6,7 @@ import MainBackground from '../components/mainBackground'
 
 const P5Wrapper = dynamic(() => import('react-p5-wrapper'), {ssr: false})
 
-const Home = () => (
+const Content = () => (
   <div>
     <div className="name-container">
       <P5Wrapper sketch={sketch}/>
@@ -32,6 +32,70 @@ const Home = () => (
       }`}</style>
    </div>
 )
+
+const Animation = () => (
+  <>
+    <img src="static/twirl-loop.gif"/>
+    
+    <style jsx>{`
+      img {
+        height: 250px;
+      }
+    `}</style>
+
+  </>
+)
+
+class Home extends React.Component {
+
+  state = {
+    animating: true,
+    timeout: null,
+  }
+
+  componentDidMount() {
+    this.startAnimationTimer()
+  }
+
+  render() {
+    return (
+      <>
+        <div className="animation">
+          <Animation />
+        </div>
+        <div className="content">
+          <Content />
+        </div>
+
+        <style jsx>{`
+          .animation {
+            height: 400px;
+            ${this.state.animating ? "display: flex;" : "display: none;"}
+            justify-content: center;
+            align-items: center;
+            margin: 220px auto;
+          }
+
+          .content {
+            ${this.state.animating ? "visibility: hidden;" : null}
+            ${this.state.animating ? "opacity: 0;" : "opacity: 1;"}
+            transition: visibility 0.8s linear, opacity 0.8s linear;
+          }
+        `}</style>
+      </>
+    )
+  }
+
+  componentWillUnmount() {
+    clearTimeout(this.state.timeout)
+  }
+
+  startAnimationTimer = () => {
+    this.timeout = setTimeout(() => {
+      this.setState({animating: false})
+    }, 4000)
+  }
+}
 
 export default Home
 
