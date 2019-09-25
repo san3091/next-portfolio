@@ -36,7 +36,7 @@ const Content = () => (
         margin-top: 200px;
       }
       .content {
-        width: 100px;
+        max-width: 100px;
         position: absolute;
         top: 200px;
         right: 0;

@@ -35,8 +35,8 @@ const ListItem = ({ title, description, imageSrc, link }) => (
       .list--item {
         position: relative;
         z-index: 1;
-        width: 400px;
-        height: 400px;
+        width: 200px;
+        height: 200px;
         margin: 10px;
         flex: 1;
         cursor: pointer;
@@ -61,13 +61,25 @@ const ListItem = ({ title, description, imageSrc, link }) => (
         left: 0;
         bottom: 0;
         right: 0;
-        width: 100%;
-        height: 100%;
+        width: 200px;
+        height: 200px;
         visibility: hidden;
       }
       .list--title {
         font-size: 28px;
         font-weight: 400;      
+      }
+
+      @media (min-width: 1100px) {
+        .list--item {
+          width: 400px;
+          height: 400px;
+        }
+
+        .list--info {
+          width: 400px;
+          height: 400px;
+        }
       }
     `}</style>
   </>
