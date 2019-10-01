@@ -1,29 +1,45 @@
 import React, { useState } from 'react'
 import Link from "next/link"
 
-const List = ({ items }) => (
-  <>
-    <ul className="list--container">
-      {items && items.map((item, index) => <ListItem key={index} {...item}/>)}
-    </ul>
+class List extends React.Component {
+  state = {
+    imagesLoaded: 0
+  }
 
-    <style jsx>{`
-      .list--container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        padding: 0;
-        text-indent: 0;
-      }
-    `}</style>
-  </>
-)
+  render () {
+    const { items } = this.props
+    return <>
+      <ul className="list--container">
+        {items && items.map((item, index) => <ListItem key={index} onLoad={this.handleImageLoaded} {...item} />)}
+      </ul>
 
-const ListItem = ({ title, description, imageSrc, link }) => (
+      <style jsx>{`
+        .list--container {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          padding: 0;
+          text-indent: 0;
+        }
+      `}</style>
+    </>
+  }
+
+  handleImageLoaded = () => {
+    console.log("loaded!")
+    this.setState({
+      imagesLoaded: ++this.state.imagesLoaded
+    }) 
+  }
+
+  imagesLoaded = () => this.state.imagesLoaded === this.props.items.length
+}
+
+const ListItem = ({ title, description, imageSrc, link, onLoad }) => (
   <>
     <Link href={link}>
       <div className="list--item">
-        <img src={imageSrc} />
+        <img src={imageSrc} onLoad={onLoad}/>
         <div className="list--info">
           <h3 className="list--title">{title}</h3>
           <p className="list--description">{description}</p>
