@@ -23,7 +23,7 @@ const ListItem = ({ title, description, imageSrc, link }) => (
   <>
     <Link href={link}>
       <div className="list--item">
-        <img src={imageSrc} />
+        <div className="image-container"><img src={imageSrc} /></div>
         <div className="list--info">
           <h3 className="list--title">{title}</h3>
           <p className="list--description">{description}</p>
@@ -40,6 +40,11 @@ const ListItem = ({ title, description, imageSrc, link }) => (
         margin: 10px;
         flex: 1;
         cursor: pointer;
+      }
+      .image-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
       }
       .list--item img {
         height: 100%;

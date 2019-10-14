@@ -25,7 +25,6 @@ const Nav = () => (
     </div>
     <div className="link--container link--top">
       <div className="link link--horizontal"><Link href="/"><a>home</a></Link></div>
-      <div className="link link--horizontal"><Link href="/tech"><a>tech portfolio</a></Link></div>
       <div className="link link--horizontal"><Link href="/contact"><a>hire me</a></Link></div>
     </div>
 

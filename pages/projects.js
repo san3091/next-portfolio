@@ -27,7 +27,7 @@ const pastPerformances = [
   {
     title: "Concentric",
     description: "An experiential introduction to dance improvisation around 45 minutes long consisting of three explorations that propose tools and entries into movement research. The workshop is a string of uninterrupted, continuous movement inspired in the work and language of Bartenieff and Laban.",
-    imageSrc: "static/concentric.jpg",
+    imageSrc: "static/concentricThumbnail.jpg",
     link: "/"
   },
   {
@@ -39,7 +39,7 @@ const pastPerformances = [
   {
     title: "After The Function",
     description: "Choreography by Taylor Mitchell, presented at Harvest Chicago Contemporary Dance Festival.",
-    imageSrc: "static/kick.jpg",
+    imageSrc: "static/afterTheFunction.png",
     link: "/"
   },
   {
